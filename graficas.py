@@ -6,7 +6,7 @@ import seaborn as sns
 
 import pickle
 
-with open("models/fine_tuned_gpt2_spanish_New/history.pkl", "rb") as f:
+with open("models/history.pkl", "rb") as f:
     history = pickle.load(f)
 
 print("Claves en historial:", history.keys())
@@ -15,7 +15,7 @@ print("Valores epoch:", history.get("epoch"))
 print("Valores eval_loss:", history.get("eval_loss"))
 
 # Cargar historial
-history_path = "models/fine_tuned_gpt2_spanish_New/history.pkl"
+history_path = "models/history.pkl"
 with open(history_path, "rb") as f:
     history = pickle.load(f)
 

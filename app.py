@@ -5,6 +5,7 @@ import torch
 from PIL import Image
 from transformers import pipeline
 import numpy as np
+import datetime
 
 # Configuración de la página
 st.set_page_config(page_title="🤖 AI Transformer PLN", layout="wide")
@@ -15,12 +16,16 @@ with st.sidebar:
     st.subheader("Desarrollado por:")
     st.markdown("Juan David Arroyave Ramirez") 
     st.markdown('https://davidarroyave.github.io', unsafe_allow_html=True)
-    st.caption("Autonomous Agents")
+    st.caption("Generative Model")
     st.caption("Creative Text Generator - NLP with Transformers")
     st.markdown("---")
     st.info(
         "Prototipo de aplicación para Procesamiento de Lenguaje Natural (PLN) usando GPT-2 (DeepESP/gpt2-spanish) tuneado a 20 epochs para generación de texto."
     )
+    st.markdown("---")
+    current_year = datetime.datetime.now().year
+    st.markdown(f"""Modelo generador de texto creativo basado en DeepESP GPT-2 de Hugging Face. ©{current_year} Juan David Arroyave Ramirez. Licenciado bajo MIT: uso de software permitido según los términos de la licencia MIT. """)
+    
     
 # Título principal y descripción
 st.title(" 🤖 Generador de Texto Creativo")
@@ -34,7 +39,7 @@ st.markdown(
 )
 
 # Paths
-MODEL_DIR = "models/fine_tuned_gpt2_spanish_New"
+MODEL_DIR = "models"
 HISTORY_PATH = os.path.join(MODEL_DIR, "history.pkl")
 OUTPUTS_DIR = "outputs"
 
@@ -111,7 +116,7 @@ with tab_metrics:
         ppl = round(float(np.exp(last_train_loss)), 4)
         st.markdown(f"**Perplexity estimada (última época):** {ppl}")
     else:
-        st.info("Se evidencia un descenso constante de la pérdida desde 6.3 en la época 15 hasta un mínimo de 5.3 alrededor de la época 43.")
+        st.info(" La curva de pérdida obtenida baja consistentemente desde aproximadamente 4.8 hasta cerca de 2.5, lo que indica que el modelo está aprendiendo y ajustando sus parámetros correctamente en los datos de entrenamiento")
 
 # ---------------------
 # Tab 3: Informe

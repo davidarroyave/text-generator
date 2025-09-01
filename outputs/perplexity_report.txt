@@ -1,0 +1,1 @@
+Train perplexity: 11.9556
