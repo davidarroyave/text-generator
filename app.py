@@ -12,7 +12,7 @@ st.set_page_config(page_title="🤖 AI Transformer PLN", layout="wide")
 
 # Sidebar con información de autores y descripción
 with st.sidebar:
-    st.title("💻 Autores")
+    st.title("💻 Autor")
     st.subheader("Desarrollado por:")
     st.markdown("Juan David Arroyave Ramirez") 
     st.markdown('https://davidarroyave.github.io', unsafe_allow_html=True)
